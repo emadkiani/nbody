@@ -1,0 +1,6 @@
+.vscode
+results_nbody.csv
+nbody_cpu
+nbody_gpu_optimized
+speedup_vs_n.png
+time_vs_n.png
