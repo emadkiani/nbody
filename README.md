@@ -1,15 +1,18 @@
 # CUDA-Accelerated N-Body Simulation
 
 ## Overview
+
 This project implements a **gravitational N-Body simulation** using both a **sequential CPU implementation** and **parallel GPU implementations using CUDA**. The goal is to demonstrate how massively parallel GPU architectures can dramatically accelerate computationally expensive problems that are impractical to run efficiently on CPUs alone. The project is designed for **educational purposes** in parallel programming, CUDA optimization, and performance analysis.
+
+<img src="screenshot.png" alt="nbody" />
 
 The project includes:
 
-* A baseline CPU version
-* A baseline GPU version (global memory)
-* An optimized GPU version (shared memory, tuned block size)
-* Performance measurement and validation
-* CSV-based result logging and Python-based plotting
+- A baseline CPU version
+- A baseline GPU version (global memory)
+- An optimized GPU version (shared memory, tuned block size)
+- Performance measurement and validation
+- CSV-based result logging and Python-based plotting
 
 ---
 
@@ -17,19 +20,20 @@ The project includes:
 
 ### Hardware
 
-* CPU: Any modern x86-64 CPU
-* GPU: NVIDIA GPU with CUDA support
+- CPU: Any modern x86-64 CPU
+- GPU: NVIDIA GPU with CUDA support
 
 ### Software
 
-* Windows 11
-* WSL2 (Ubuntu 20.04 or newer)
-* NVIDIA GPU Driver (Windows)
-* CUDA Toolkit 12.4
-* GCC / G++
-* Python 3 (for plotting)
+- Windows 11
+- WSL2 (Ubuntu 20.04 or newer)
+- NVIDIA GPU Driver (Windows)
+- CUDA Toolkit 12.4
+- GCC / G++
+- Python 3 (for plotting)
 
 ### Tested System Info:
+
 ```
 CPU: Intel Core i5-12500H
 GPU: NVIDIA RTX 3050 4GB Laptop (CC 8.6)
@@ -74,7 +78,6 @@ Verify installation:
 nvcc --version
 nvidia-smi
 ```
-
 
 ### Install Python Dependencies (for plots)
 
@@ -146,6 +149,7 @@ To test GPU Baseline or GPU Shared version, rebuild again but this time:
 ```bash
 nvcc -O3 src/nbody_gpu_baseline.cu -o nbody_gpu_baseline
 ```
+
 or
 
 ```bash
@@ -164,8 +168,8 @@ python3 plot_nbody.py
 
 This generates:
 
-* `time_vs_n.png` – CPU vs GPU execution time
-* `speedup_vs_n.png` – GPU speedup over CPU
+- `time_vs_n.png` – CPU vs GPU execution time
+- `speedup_vs_n.png` – GPU speedup over CPU
 
 ---
 
@@ -178,12 +182,12 @@ Results match within floating-point tolerance, confirming correct parallel execu
 
 ## Optimization Techniques Used
 
-* CUDA grid–block tuning (128 / 256 threads per block)
-* Shared memory tiling
-* Coalesced global memory access
-* Reduced global memory bandwidth usage
-* Minimal warp divergence
-* CUDA event timing for accurate measurement
+- CUDA grid–block tuning (128 / 256 threads per block)
+- Shared memory tiling
+- Coalesced global memory access
+- Reduced global memory bandwidth usage
+- Minimal warp divergence
+- CUDA event timing for accurate measurement
 
 ---
 
@@ -191,7 +195,7 @@ Results match within floating-point tolerance, confirming correct parallel execu
 
 This project demonstrates:
 
-* Why GPUs outperform CPUs for highly parallel workloads
-* How algorithm structure affects GPU efficiency
-* Practical CUDA optimization strategies
-* Performance scaling with problem size
+- Why GPUs outperform CPUs for highly parallel workloads
+- How algorithm structure affects GPU efficiency
+- Practical CUDA optimization strategies
+- Performance scaling with problem size
